@@ -6,8 +6,7 @@ dotenv.config();
 class TranslationService {
   constructor() {
     this.openai = new OpenAI({
-      apiKey: process.env.PERPLEXITY_API_KEY,
-      baseURL: "https://api.perplexity.ai"
+      apiKey: process.env.OPENAI_API_KEY
     });
   }
 
@@ -26,7 +25,7 @@ class TranslationService {
       Provide only the translation without any additional explanation.`;
 
       const completion = await this.openai.chat.completions.create({
-        model: "sonar-pro",
+        model: "gpt-4o-mini",
         messages: [
           {
             role: "system",
@@ -59,7 +58,7 @@ class TranslationService {
   async detectLanguage(text) {
     try {
       const completion = await this.openai.chat.completions.create({
-        model: "sonar-pro",
+        model: "gpt-4o-mini",
         messages: [
           {
             role: "user",
@@ -83,7 +82,7 @@ class TranslationService {
   async enhanceTranscription(text) {
     try {
       const completion = await this.openai.chat.completions.create({
-        model: "sonar-pro",
+        model: "gpt-4o-mini",
         messages: [
           {
             role: "system",

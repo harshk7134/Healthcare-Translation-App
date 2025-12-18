@@ -1,11 +1,9 @@
 import OpenAI from 'openai';
-import axios from 'axios';
 
 class TextToSpeechService {
   constructor() {
     this.openai = new OpenAI({
-      apiKey: process.env.PERPLEXITY_API_KEY,
-      baseURL: "https://api.perplexity.ai"
+      apiKey: process.env.OPENAI_API_KEY
     });
   }
 
